@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwebb0g3gnsvp"]
+
+[ext_resource type="Script" uid="uid://vhwmpk854s2j" path="res://Scenes/Master/Master.gd" id="1_1t0lv"]
+[ext_resource type="Texture2D" uid="uid://cdw2xkk63crjw" path="res://assets/images/backgroundEmpty.png" id="1_h6g34"]
+[ext_resource type="PackedScene" uid="uid://scos2gbrlfjk" path="res://Scenes/Main/Main.tscn" id="2_o4rt4"]
+[ext_resource type="PackedScene" uid="uid://dtccnm78dy3y2" path="res://Scenes/Game/Game.tscn" id="3_7tgqy"]
+
+[node name="Master" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1t0lv")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_h6g34")
+expand_mode = 1
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+volume_db = -15.0
+
+[node name="Main" parent="." instance=ExtResource("2_o4rt4")]
+layout_mode = 1
+
+[node name="Game" parent="." instance=ExtResource("3_7tgqy")]
+visible = false
+layout_mode = 1

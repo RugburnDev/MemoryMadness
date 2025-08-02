@@ -1,0 +1,172 @@
+[gd_scene load_steps=8 format=3 uid="uid://dtccnm78dy3y2"]
+
+[ext_resource type="Script" uid="uid://dfusjcojslwsr" path="res://Scenes/Game/Game.gd" id="1_rdw05"]
+[ext_resource type="Texture2D" uid="uid://dyqneofptwsm8" path="res://assets/frames/hidden_frame_blank.png" id="2_gwu2e"]
+[ext_resource type="Texture2D" uid="uid://b2pppxutg4tqy" path="res://assets/ui/level_select_frame_128.png" id="3_y3kpf"]
+[ext_resource type="Texture2D" uid="uid://b0cdhvm87wcga" path="res://assets/ui/level_select_frame_hover_128.png" id="4_3k6gv"]
+[ext_resource type="Texture2D" uid="uid://ds2h2lggn223t" path="res://assets/ui/level_select_frame_select_128.png" id="5_1q8bt"]
+[ext_resource type="LabelSettings" uid="uid://ciamtpa0ksi1l" path="res://Resources/Text/label_white_25.tres" id="6_3k6gv"]
+[ext_resource type="PackedScene" uid="uid://k56n7i0p2gg1" path="res://Scenes/GameOverUI/GameOverUi.tscn" id="7_1q8bt"]
+
+[node name="Game" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rdw05")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameGridContainer" type="GridContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_constants/h_separation = 5
+theme_override_constants/v_separation = 5
+columns = 6
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/GameGridContainer"]
+layout_mode = 2
+texture = ExtResource("2_gwu2e")
+
+[node name="TextureRect_2" type="TextureRect" parent="HBoxContainer/GameGridContainer"]
+layout_mode = 2
+texture = ExtResource("2_gwu2e")
+
+[node name="TextureRect_3" type="TextureRect" parent="HBoxContainer/GameGridContainer"]
+layout_mode = 2
+texture = ExtResource("2_gwu2e")
+
+[node name="TextureRect_4" type="TextureRect" parent="HBoxContainer/GameGridContainer"]
+layout_mode = 2
+texture = ExtResource("2_gwu2e")
+
+[node name="TextureRect_5" type="TextureRect" parent="HBoxContainer/GameGridContainer"]
+layout_mode = 2
+texture = ExtResource("2_gwu2e")
+
+[node name="TextureRect_6" type="TextureRect" parent="HBoxContainer/GameGridContainer"]
+layout_mode = 2
+texture = ExtResource("2_gwu2e")
+
+[node name="TextureRect_7" type="TextureRect" parent="HBoxContainer/GameGridContainer"]
+layout_mode = 2
+texture = ExtResource("2_gwu2e")
+
+[node name="MenuMarginContainer" type="MarginContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_constants/margin_right = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/MenuMarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="MovesHBox" type="HBoxContainer" parent="HBoxContainer/MenuMarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MovesLabel" type="Label" parent="HBoxContainer/MenuMarginContainer/VBoxContainer/MovesHBox"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Moves"
+label_settings = ExtResource("6_3k6gv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MovesActual" type="Label" parent="HBoxContainer/MenuMarginContainer/VBoxContainer/MovesHBox"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "0"
+label_settings = ExtResource("6_3k6gv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/MenuMarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TimeLabel" type="Label" parent="HBoxContainer/MenuMarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Time"
+label_settings = ExtResource("6_3k6gv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimeActual" type="Label" parent="HBoxContainer/MenuMarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "0"
+label_settings = ExtResource("6_3k6gv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PairsHBox" type="HBoxContainer" parent="HBoxContainer/MenuMarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="PairsLabel" type="Label" parent="HBoxContainer/MenuMarginContainer/VBoxContainer/PairsHBox"]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Pairs"
+label_settings = ExtResource("6_3k6gv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PairsActual" type="Label" parent="HBoxContainer/MenuMarginContainer/VBoxContainer/PairsHBox"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "0/12"
+label_settings = ExtResource("6_3k6gv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Spacer" type="Control" parent="HBoxContainer/MenuMarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+
+[node name="ExitButton" type="TextureButton" parent="HBoxContainer/MenuMarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = ExtResource("3_y3kpf")
+texture_pressed = ExtResource("4_3k6gv")
+texture_hover = ExtResource("5_1q8bt")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="HBoxContainer/MenuMarginContainer/VBoxContainer/ExitButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Exit"
+label_settings = ExtResource("6_3k6gv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sound" type="AudioStreamPlayer" parent="HBoxContainer"]
+
+[node name="Timer" type="Timer" parent="HBoxContainer"]
+autostart = true
+
+[node name="GameOverUI" parent="." instance=ExtResource("7_1q8bt")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="HBoxContainer/MenuMarginContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="timeout" from="HBoxContainer/Timer" to="." method="_on_timer_timeout"]
